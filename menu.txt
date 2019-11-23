@@ -1,0 +1,13 @@
+FD0001 260 Steak
+FD0002 205 Fried Chicken
+FD0003 90 French Fries
+FD0004 60 Salad
+FD0005 30 Coke
+FD0006 15 Water
+FD0007 500 Spicy Steak Set
+FD0008 500 Sour Steak Set
+FD0009 500 Tite Steak Set
+FD0010 600 Stirfry Set1
+FD0011 500 Stirfry Set2
+FD0012 300 Stirfry Set3
+FD0013 200 Stirfry Set4
