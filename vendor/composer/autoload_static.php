@@ -7,16 +7,32 @@ namespace Composer\Autoload;
 class ComposerStaticInit5cf7820a6446fecc13fa28a92f0269cf
 {
     public static $prefixLengthsPsr4 = array (
+        'R' => 
+        array (
+            'Riesenia\\Cart\\' => 14,
+        ),
         'M' => 
         array (
             'MathPHP\\' => 8,
         ),
+        'L' => 
+        array (
+            'Litipk\\BigNumbers\\' => 18,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Riesenia\\Cart\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/riesenia/cart/src',
+        ),
         'MathPHP\\' => 
         array (
             0 => __DIR__ . '/..' . '/markrogoyski/math-php/src',
+        ),
+        'Litipk\\BigNumbers\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/litipk/php-bignumbers/src',
         ),
     );
 

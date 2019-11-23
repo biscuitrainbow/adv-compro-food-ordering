@@ -1,6 +1,14 @@
 <?php
+require_once './vendor/autoload.php';
 require_once './Product.php';
 require_once './order.php';
+
+use Riesenia\Cart\Cart;
+
+$product = new Product('FD0001', "Stri fried", 200.0);
+
+
+
 
 $opts = getopt(
 	"somh",
@@ -37,6 +45,7 @@ while (!feof($file_menu)) {
 }
 
 
+
 // if ($_SERVER['argc'] < 2) {
 // 	$error = <<<EOT
 
@@ -49,6 +58,7 @@ while (!feof($file_menu)) {
 // 	fprintf(STDERR, "%s\n", $error);
 // 	exit(0);
 // }
+
 
 if (array_key_exists('menu', $opts)) {
 	foreach ($products as $product) {
@@ -110,31 +120,26 @@ if (array_key_exists('menu', $opts)) {
 // 	}
 // }
 
+
 if (array_key_exists('order', $opts)) {
-	$cart = [];
+	$cart = new Cart();
 
 	while (true) {
 		echo "Please input the meal serial number and quantity(eg. FD0001 5 or F for finish): ";
-		fscanf("%s", $input);
+		fscanf(STDIN, "%s %s", $id, $quantity);
 
-		if ($input == 'f' || $input == 'F') {
+		if (strtolower($id) == 'f') {
 			break;
 		}
 
-		[$id, $quantity] = explode(" ", $input);
-
-
-		// for ($j = 1; $j <= $n; $j++) {
-		// 	if ($number[$i] == $menu[$j][0]) {
-		// 		$list[$i] = new ordering($menu[$j][0], $menu[$j][1], $menu[$j][2], $amount[$i]);
-		// 		$cart[$i] = $list[$i]->putintocart();
-		// 		$list[$i]->total($list[$i]->price(), $list[$i]->amount());
-		// 		$total = $total + $list[$i]->showtotal();
-		// 	}
-		// }
-		// printf("\nDo you want to continue ordering(y/n)? ");
-		// fscanf(STDIN, "%s", $input1);
-		// if ($input1 == 'N' || $input1 == 'n') break;
+		$cart->addItem($products[strtoupper($id)], $quantity);
 	}
-	// echo "Total :" . $total;
+
+	printf("\n\nProduct Reciept\n\n");
+	printf("%-10s %-20s %-10s %-10s %-5s\n", "ID", "Product", "Price", "Quantity", "Total");
+	foreach ($cart->getItems() as $product) {
+		$each_product_total = $product->price * $product->quantity;
+		printf("%-10s %-20s %-10s %-10d %-5s\n", $product->id, $product->name, number_format($product->price, 2), $product->quantity, number_format($each_product_total, 2));
+	}
+	printf("\nNet price = %s\n", number_format($cart->getTotal()->asFloat(), 2));
 }

@@ -1,5 +1,6 @@
 {
     "require": {
-        "markrogoyski/math-php": "^0.55.0"
+        "markrogoyski/math-php": "^0.55.0",
+        "riesenia/cart": "^3.0"
     }
 }

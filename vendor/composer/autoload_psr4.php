@@ -6,5 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Riesenia\\Cart\\' => array($vendorDir . '/riesenia/cart/src'),
     'MathPHP\\' => array($vendorDir . '/markrogoyski/math-php/src'),
+    'Litipk\\BigNumbers\\' => array($vendorDir . '/litipk/php-bignumbers/src'),
 );
