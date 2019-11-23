@@ -5,11 +5,6 @@ require_once './order.php';
 
 use Riesenia\Cart\Cart;
 
-$product = new Product('FD0001', "Stri fried", 200.0);
-
-
-
-
 $opts = getopt(
 	"somh",
 	['suggestion', 'order', 'menu', 'help'],
